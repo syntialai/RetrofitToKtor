@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextAppearance.MovieCatalogue.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="fontFamily">@font/raleway</item>
+        <item name="android:fontFamily">@font/raleway</item>
+        <item name="android:textFontWeight">700</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/sp_30</item>
+    </style>
+
+    <style name="TextAppearance.MovieCatalogue.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="fontFamily">@font/raleway</item>
+        <item name="android:fontFamily">@font/raleway</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:textSize">@dimen/sp_24</item>
+    </style>
+
+    <style name="TextAppearance.MovieCatalogue.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="fontFamily">@font/raleway</item>
+        <item name="android:fontFamily">@font/raleway</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:textSize">@dimen/sp_20</item>
+    </style>
+
+    <style name="TextAppearance.MovieCatalogue.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="fontFamily">@font/raleway</item>
+        <item name="android:fontFamily">@font/raleway</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+    <style name="TextAppearance.MovieCatalogue.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="fontFamily">@font/raleway</item>
+        <item name="android:fontFamily">@font/raleway</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
+    <style name="TextAppearance.MovieCatalogue.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/raleway</item>
+        <item name="android:fontFamily">@font/raleway</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
+    <style name="TextAppearance.MovieCatalogue.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/raleway</item>
+        <item name="android:fontFamily">@font/raleway</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+    <style name="TextAppearance.MovieCatalogue.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="fontFamily">@font/raleway</item>
+        <item name="android:fontFamily">@font/raleway</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
+    <style name="TextAppearance.MovieCatalogue.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/open_sans</item>
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
+    <style name="TextAppearance.MovieCatalogue.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/open_sans</item>
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
+    <style name="TextAppearance.MovieCatalogue.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/open_sans</item>
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="TextAppearance.MovieCatalogue.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="fontFamily">@font/open_sans</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="TextAppearance.MovieCatalogue.Overline" parent="TextAppearance.MaterialComponents.Overline">
+        <item name="fontFamily">@font/raleway</item>
+        <item name="android:fontFamily">@font/raleway</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+</resources>

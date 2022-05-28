@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="red_300">#f26b73</color>
+    <color name="red_600">#f61432</color>
+    <color name="red_800">#d70024</color>
+
+    <color name="black">#FF000000</color>
+
+    <color name="black_blue_900">#0f1116</color>
+
+    <color name="black_blue_800_50">#802F3136</color>
+
+    <color name="white_87">#DEFFFFFF</color>
+    <color name="white_60">#99FFFFFF</color>
+
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="yellow">#FFDF00</color>
+
+    <color name="ic_launcher_background">@color/black_blue_900</color>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Additional color for text -->
+    <attr name="colorTextMedium" format="color" />
+    <attr name="colorTextLow" format="color" />
+</resources>

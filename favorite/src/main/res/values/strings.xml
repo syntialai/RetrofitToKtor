@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_favorite">Favorite</string>
+    <string name="your_favorites_label">Your Favorites</string>
+    <string name="favorite_movie_is_empty_label">You haven\'t add a favorite movie.</string>
+    <string name="favorite_tv_is_empty_label">You haven\'t add a favorite tv show.</string>
+</resources>

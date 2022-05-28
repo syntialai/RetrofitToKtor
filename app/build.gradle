@@ -1,0 +1,85 @@
+plugins {
+  id 'com.android.application'
+  id 'kotlin-android'
+  id 'kotlin-kapt'
+  id 'kotlin-parcelize'
+  id 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+  compileSdkVersion 32
+  buildToolsVersion "32.1.0-rc1"
+
+  defaultConfig {
+    applicationId "com.syntia.moviecatalogue"
+    minSdkVersion 24
+    targetSdkVersion 32
+    versionCode 1
+    versionName "1.0"
+
+    multiDexEnabled true
+    testInstrumentationRunner "com.syntia.moviecatalogue.AndroidTestAppJUnitRunner"
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled true
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+    debug {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+
+  buildFeatures {
+    viewBinding true
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_11
+    targetCompatibility JavaVersion.VERSION_11
+  }
+
+  kotlinOptions {
+    jvmTarget = '11'
+  }
+
+  packagingOptions {
+    exclude 'META-INF/AL2.0'
+    exclude 'META-INF/LGPL2.1'
+  }
+
+  testOptions {
+    unitTests {
+      includeAndroidResources = true
+      returnDefaultValues = true
+
+      all {
+        maxHeapSize = "1024m"
+      }
+    }
+  }
+
+  dynamicFeatures = [':favorite']
+}
+
+dependencies {
+
+  //noinspection DifferentStdlibGradleVersion
+  implementation "org.jetbrains.kotlin:kotlin-stdlib:${rootProject.kotlin_version}"
+  api project(":core")
+
+  // Tests
+  testImplementation 'junit:junit:4.13.2'
+  testImplementation "org.mockito.kotlin:mockito-kotlin:3.1.0"
+  testImplementation "androidx.arch.core:core-testing:2.1.0"
+  testImplementation 'androidx.test:core:1.4.0'
+  testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3'
+
+  // Room
+  kapt "androidx.room:room-compiler:2.4.2"
+
+  // Leak Canary
+  debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
+}

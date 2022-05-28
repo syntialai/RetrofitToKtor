@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="@dimen/dp_16">
+
+    <TextView
+        android:id="@+id/text_view_detail_title"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textAppearance="?attr/textAppearanceHeadline1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Spiderman" />
+
+    <TextView
+        android:id="@+id/text_view_detail_date_and_time_or_episode"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8"
+        android:textAlignment="center"
+        android:textAppearance="?attr/textAppearanceBody1"
+        app:layout_constraintTop_toBottomOf="@id/text_view_detail_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Mar 18, 2017 (RU)  ●  2 h 35 min" />
+
+    <RatingBar
+        android:id="@+id/rating_bar_detail"
+        style="@style/Widget.MovieCatalogue.RatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/text_view_detail_rating"
+        app:layout_constraintTop_toBottomOf="@id/text_view_detail_date_and_time_or_episode"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible"
+        tools:rating="4" />
+
+    <TextView
+        android:id="@+id/text_view_detail_rating"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_8"
+        android:textAppearance="?attr/textAppearanceBody1"
+        android:textColor="@color/yellow"
+        app:layout_constraintTop_toBottomOf="@id/text_view_detail_date_and_time_or_episode"
+        app:layout_constraintStart_toEndOf="@id/rating_bar_detail"
+        tools:text="8.7" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chip_group_detail_genres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp_4"
+        android:orientation="horizontal"
+        app:flow_horizontalAlign="center"
+        app:layout_constraintTop_toBottomOf="@id/text_view_detail_rating"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:selectionRequired="false">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_movie_and_tv_item_adult"
+            style="@style/Widget.MovieCatalogue.Chip.Information.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:chipIcon="@drawable/ic_adult"
+            tools:visibility="visible" />
+
+    </com.google.android.material.chip.ChipGroup>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="no_connection_message">Failed to fetch data. Please check your internet connection.</string>
+    <string name="unknown_error_message">An error occurred while receiving data. Please try again later.</string>
+    <string name="empty_state_label">No data found.</string>
+</resources>

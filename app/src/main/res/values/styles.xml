@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.MovieCatalogue.Chip.Information" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="android:clickable">false</item>
+        <item name="textStartPadding">@dimen/dp_0</item>
+        <item name="chipStartPadding">@dimen/dp_12</item>
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+    </style>
+
+    <style name="Widget.MovieCatalogue.Chip.Information.Icon" parent="Widget.MovieCatalogue.Chip.Information">
+        <item name="chipIconVisible">true</item>
+        <item name="textEndPadding">@dimen/dp_4</item>
+    </style>
+
+    <style name="Widget.MovieCatalogue.RatingBar" parent="android:style/Widget.Material.RatingBar.Small">
+        <item name="android:progressBackgroundTint">@color/white_60</item>
+        <item name="android:progressTint">@color/yellow</item>
+    </style>
+
+    <style name="Widget.MovieCatalogue.SearchView" parent="Widget.AppCompat.SearchView">
+        <item name="android:background">@drawable/drawable_search_background</item>
+        <item name="android:editTextColor">@android:color/white</item>
+        <item name="android:textColorHint">@color/white_60</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAppearance">?attr/textAppearanceSubtitle1</item>
+        <item name="android:iconifiedByDefault">false</item>
+        <item name="android:searchIcon">@drawable/ic_search</item>
+        <item name="android:searchHintIcon">@drawable/ic_search</item>
+        <item name="android:paddingStart">@dimen/dp_minus_4</item>
+        <item name="android:queryBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="Widget.MovieCatalogue.Toolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="titleTextAppearance">?attr/textAppearanceHeadline3</item>
+    </style>
+
+    <style name="Behaviour.MovieCatalogue.ScrollingViewBehaviour" parent="">
+        <item name="layout_behavior">@string/appbar_scrolling_view_behavior</item>
+    </style>
+
+    <style name="ShapeAppearance.MovieCatalogue.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerSize">@dimen/dp_16</item>
+    </style>
+
+    <style name="ShapeAppearance.MovieCatalogue.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerSize">@dimen/dp_8</item>
+    </style>
+</resources>
