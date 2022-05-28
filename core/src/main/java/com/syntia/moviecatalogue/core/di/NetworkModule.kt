@@ -20,11 +20,14 @@ private const val BEARER_TOKEN_PREFIX = "Bearer "
 
 val networkModule = module {
 
-  fun provideRetrofit(): Retrofit {
-    val loggingInterceptor = HttpLoggingInterceptor().apply {
+  fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
+    return HttpLoggingInterceptor().apply {
       setLevel(HttpLoggingInterceptor.Level.BODY)
     }
-    val interceptor = Interceptor { chain ->
+  }
+
+  fun provideRequestInterceptor(): Interceptor {
+    return Interceptor { chain ->
       val request = chain.request()
 
       val newUrl = request.url.newBuilder()
@@ -39,21 +42,30 @@ val networkModule = module {
 
       chain.proceed(requestBuilder.build())
     }
+  }
 
-    val movieApiCertificatePinner = CertificatePinner.Builder()
+  fun provideMovieApiCertificatePinner(): CertificatePinner {
+    return CertificatePinner.Builder()
         .add(CERTIFICATE_HOST_NAME, "sha256/+vqZVAzTqUP8BGkfl88yU7SQ3C8J2uNEa55B7RZjEg0=")
         .add(CERTIFICATE_HOST_NAME, "sha256/JSMzqOOrtyOT1kmau6zKhgT676hGgczD5VMdRMyJZFA=")
         .add(CERTIFICATE_HOST_NAME, "sha256/++MBgDH5WGvL9Bcn5Be30cRcL0f5O+NyoXuWtQdX1aI=")
         .build()
+  }
 
-    val okHttpClient = OkHttpClient.Builder()
-        .addInterceptor(loggingInterceptor)
-        .addInterceptor(interceptor)
-        .connectTimeout(2000, TimeUnit.SECONDS)
-        .readTimeout(2000, TimeUnit.SECONDS)
+  fun provideHttpClient(
+      httpLoggingInterceptor: HttpLoggingInterceptor,
+      requestInterceptor: Interceptor,
+      movieApiCertificatePinner: CertificatePinner): OkHttpClient {
+    return OkHttpClient.Builder()
+        .addInterceptor(httpLoggingInterceptor)
+        .addInterceptor(requestInterceptor)
+        .connectTimeout(6000, TimeUnit.SECONDS)
+        .readTimeout(6000, TimeUnit.SECONDS)
         .certificatePinner(movieApiCertificatePinner)
         .build()
+  }
 
+  fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
     return Retrofit.Builder()
         .baseUrl(BASE_API_URL)
         .addConverterFactory(GsonConverterFactory.create())
@@ -61,5 +73,9 @@ val networkModule = module {
         .build()
   }
 
-  single { provideRetrofit() }
+  single { provideHttpLoggingInterceptor() }
+  single { provideRequestInterceptor() }
+  single { provideMovieApiCertificatePinner() }
+  single { provideHttpClient(get(), get(), get()) }
+  single { provideRetrofit(get()) }
 }
