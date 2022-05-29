@@ -8,7 +8,8 @@ import com.syntia.moviecatalogue.core.domain.model.search.SearchResultUiModel
 
 object SearchMapper {
 
-  fun toSearchResultUiModels(responses: ListItemResponse<SearchResult>) = responses.results.map {
+  fun toSearchResultUiModels(
+      responses: ListItemResponse<SearchResult>) = responses.results.orEmpty().map {
     toSearchResultUiModel(it)
   }
 

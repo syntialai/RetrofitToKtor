@@ -12,15 +12,16 @@ import java.util.Locale
 
 object TrendingMapper {
 
-  fun toTrendingItemUiModels(responses: ListItemResponse<TrendingItem>) = responses.results.map {
+  fun toTrendingItemUiModels(
+      responses: ListItemResponse<TrendingItem>) = responses.results.orEmpty().map {
     toTrendingItemUiModel(it)
   }
 
-  fun toMovieUiModels(responses: ListItemResponse<Movie>) = responses.results.map {
+  fun toMovieUiModels(responses: ListItemResponse<Movie>) = responses.results.orEmpty().map {
     toMovieUiModel(it)
   }
 
-  fun toTvShowsUiModels(responses: ListItemResponse<TvShows>) = responses.results.map {
+  fun toTvShowsUiModels(responses: ListItemResponse<TvShows>) = responses.results.orEmpty().map {
     toTvShowsUiModel(it)
   }
 

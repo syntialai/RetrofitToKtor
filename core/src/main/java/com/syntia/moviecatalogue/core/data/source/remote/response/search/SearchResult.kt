@@ -35,5 +35,5 @@ data class SearchResult(
     val title: String?,
 
     @SerializedName("vote_average")
-    val voteAverage: Double
+    val voteAverage: Double?
 )

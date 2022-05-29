@@ -8,5 +8,5 @@ data class KnownFor(
     val name: String?,
 
     @SerializedName("title")
-    val title: String?,
+    val title: String?
 )
