@@ -20,5 +20,5 @@ https://user-images.githubusercontent.com/53588149/170821249-2d183032-2577-4a5f-
 
 Ktor is a multiplatform framework to do asynchronous operations from Jetbrains. It builts from kotlin and supports kotlin Coroutine.
 Ktor migration guideline has been created for learning purposes, excluding the unit tests.
-+ Refer to [ktor/start](https://github.com/syntialai/RetrofitToKtor/tree/ktor/start) branch for Ktor migration starter code and the guidelines.
++ Refer to [ktor/start](https://github.com/syntialai/RetrofitToKtor/tree/ktor/start) branch for Ktor migration starter code and the [guidelines](https://github.com/syntialai/RetrofitToKtor/blob/ktor/start/README.md).
 + Refer to [ktor/finished](https://github.com/syntialai/RetrofitToKtor/tree/ktor/finished) branch for the completed code of migration to Ktor.
