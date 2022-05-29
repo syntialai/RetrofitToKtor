@@ -12,10 +12,8 @@ import com.syntia.moviecatalogue.favorite.databinding.FragmentFavoriteMovieBindi
 import com.syntia.moviecatalogue.favorite.presentation.adapter.FavoriteMovieAdapter
 import com.syntia.moviecatalogue.favorite.presentation.viewmodel.FavoriteMovieViewModel
 import com.syntia.moviecatalogue.features.utils.Router
-import kotlinx.coroutines.InternalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@InternalCoroutinesApi
 class FavoriteMovieFragment : BaseFragment<FragmentFavoriteMovieBinding, FavoriteMovieViewModel>() {
 
   companion object {

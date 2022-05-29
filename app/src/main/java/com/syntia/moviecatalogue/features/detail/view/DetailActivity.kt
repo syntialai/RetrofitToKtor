@@ -20,10 +20,8 @@ import com.syntia.moviecatalogue.features.detail.adapter.DetailCastAdapter
 import com.syntia.moviecatalogue.features.detail.viewmodel.DetailViewModel
 import com.syntia.moviecatalogue.features.utils.ImageResUtils
 import com.syntia.moviecatalogue.features.utils.Router
-import kotlinx.coroutines.InternalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@InternalCoroutinesApi
 class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>(), View.OnClickListener {
 
   private val castAdapter by lazy {

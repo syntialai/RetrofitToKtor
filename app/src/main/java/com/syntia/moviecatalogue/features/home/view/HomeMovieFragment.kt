@@ -12,10 +12,8 @@ import com.syntia.moviecatalogue.databinding.FragmentHomeMovieBinding
 import com.syntia.moviecatalogue.features.home.adapter.HomeMovieAdapter
 import com.syntia.moviecatalogue.features.home.viewmodel.HomeMovieViewModel
 import com.syntia.moviecatalogue.features.utils.Router
-import kotlinx.coroutines.InternalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@InternalCoroutinesApi
 class HomeMovieFragment : BaseFragment<FragmentHomeMovieBinding, HomeMovieViewModel>() {
 
   companion object {

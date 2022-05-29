@@ -6,9 +6,7 @@ import androidx.paging.PagingData
 import com.syntia.moviecatalogue.base.presentation.viewmodel.BaseViewModel
 import com.syntia.moviecatalogue.core.domain.model.tvshow.TvShowsUiModel
 import com.syntia.moviecatalogue.core.domain.repository.FavoriteItemRepository
-import kotlinx.coroutines.InternalCoroutinesApi
 
-@InternalCoroutinesApi
 class FavoriteTvShowsViewModel(private val favoriteItemRepository: FavoriteItemRepository) :
     BaseViewModel() {
 

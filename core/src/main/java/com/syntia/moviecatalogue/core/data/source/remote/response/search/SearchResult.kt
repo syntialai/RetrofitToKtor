@@ -1,39 +1,41 @@
 package com.syntia.moviecatalogue.core.data.source.remote.response.search
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class SearchResult(
 
-    @SerializedName("adult")
-    val adult: Boolean? = false,
+    @SerialName("adult")
+    var adult: Boolean? = false,
 
-    @SerializedName("first_air_date")
-    val firstAirDate: String?,
+    @SerialName("first_air_date")
+    var firstAirDate: String? = null,
 
-    @SerializedName("id")
-    val id: Int,
+    @SerialName("id")
+    var id: Int,
 
-    @SerializedName("known_for")
-    val knownFor: List<KnownFor>?,
+    @SerialName("known_for")
+    var knownFor: List<KnownFor>? = null,
 
-    @SerializedName("media_type")
-    val mediaType: String,
+    @SerialName("media_type")
+    var mediaType: String,
 
-    @SerializedName("name")
-    val name: String?,
+    @SerialName("name")
+    var name: String? = null,
 
-    @SerializedName("poster_path")
-    val posterPath: String?,
+    @SerialName("poster_path")
+    var posterPath: String? = null,
 
-    @SerializedName("profile_path")
-    val profilePath: String?,
+    @SerialName("profile_path")
+    var profilePath: String? = null,
 
-    @SerializedName("release_date")
-    val releaseDate: String?,
+    @SerialName("release_date")
+    var releaseDate: String? = null,
 
-    @SerializedName("title")
-    val title: String?,
+    @SerialName("title")
+    var title: String? = null,
 
-    @SerializedName("vote_average")
-    val voteAverage: Double
+    @SerialName("vote_average")
+    var voteAverage: Double? = null
 )

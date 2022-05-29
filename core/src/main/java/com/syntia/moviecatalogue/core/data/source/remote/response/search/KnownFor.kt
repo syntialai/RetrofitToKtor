@@ -1,12 +1,14 @@
 package com.syntia.moviecatalogue.core.data.source.remote.response.search
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class KnownFor(
 
-    @SerializedName("name")
-    val name: String?,
+    @SerialName("name")
+    val name: String? = null,
 
-    @SerializedName("title")
-    val title: String?,
+    @SerialName("title")
+    val title: String? = null,
 )

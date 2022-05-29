@@ -1,24 +1,26 @@
 package com.syntia.moviecatalogue.core.data.source.remote.response.tvshow
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class TvShows(
 
-    @SerializedName("backdrop_path")
+    @SerialName("backdrop_path")
     val backdropPath: String? = null,
 
-    @SerializedName("id")
+    @SerialName("id")
     val id: Int,
 
-    @SerializedName("name")
+    @SerialName("name")
     val name: String,
 
-    @SerializedName("poster_path")
+    @SerialName("poster_path")
     val posterPath: String? = null,
 
-    @SerializedName("first_air_date")
+    @SerialName("first_air_date")
     val firstAirDate: String? = null,
 
-    @SerializedName("vote_average")
+    @SerialName("vote_average")
     val voteAverage: Double
 )

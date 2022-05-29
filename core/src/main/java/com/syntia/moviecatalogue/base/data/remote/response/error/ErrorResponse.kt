@@ -1,9 +1,11 @@
 package com.syntia.moviecatalogue.base.data.remote.response.error
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class ErrorResponse(
 
-    @SerializedName("status_message")
+    @SerialName("status_message")
     val message: String
 )

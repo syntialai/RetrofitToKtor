@@ -6,9 +6,7 @@ import androidx.paging.PagingData
 import com.syntia.moviecatalogue.base.presentation.viewmodel.BaseViewModel
 import com.syntia.moviecatalogue.core.domain.model.search.SearchResultUiModel
 import com.syntia.moviecatalogue.core.domain.repository.SearchRepository
-import kotlinx.coroutines.InternalCoroutinesApi
 
-@InternalCoroutinesApi
 class SearchViewModel(private val searchRepository: SearchRepository) : BaseViewModel() {
 
   private var _searchResults = MutableLiveData<PagingData<SearchResultUiModel>>()

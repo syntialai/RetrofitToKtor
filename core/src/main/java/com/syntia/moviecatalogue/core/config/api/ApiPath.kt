@@ -16,9 +16,11 @@ object ApiPath {
   const val GET_MOVIE_POPULAR = "$MOVIE/$POPULAR"
   const val GET_MOVIE_ID = "$MOVIE/{$ID}"
   const val GET_MOVIE_ID_CREDITS = "$MOVIE/{$ID}/credits"
+  const val GET_MOVIE_STRING_CREDITS = "$MOVIE/%s/credits"
 
-  private const val TV = "tv"
+  const val TV = "tv"
   const val GET_TV_TOP_POPULAR = "$TV/$POPULAR"
   const val GET_TV_ID = "$TV/{$ID}"
   const val GET_TV_ID_CREDITS = "$TV/{$ID}/credits"
+  const val GET_TV_STRING_CREDITS = "$TV/%s/credits"
 }

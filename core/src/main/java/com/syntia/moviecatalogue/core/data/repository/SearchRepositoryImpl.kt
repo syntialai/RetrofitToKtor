@@ -11,7 +11,8 @@ import com.syntia.moviecatalogue.core.utils.mapper.SearchMapper
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 
-class SearchRepositoryImpl(private val searchRemoteDataSource: SearchRemoteDataSource,
+class SearchRepositoryImpl(
+    private val searchRemoteDataSource: SearchRemoteDataSource,
     private val ioDispatcher: CoroutineDispatcher) : SearchRepository {
 
   override suspend fun searchByQuery(query: String): Flow<PagingData<SearchResultUiModel>> {

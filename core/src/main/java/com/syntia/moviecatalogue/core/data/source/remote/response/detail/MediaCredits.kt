@@ -1,11 +1,13 @@
 package com.syntia.moviecatalogue.core.data.source.remote.response.detail
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class MediaCredits(
 
-    @SerializedName("id")
+    @SerialName("id")
     val id: Int,
 
-    @SerializedName("cast")
+    @SerialName("cast")
     val cast: List<Cast>)

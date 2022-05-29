@@ -6,9 +6,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.syntia.moviecatalogue.favorite.presentation.view.FavoriteMovieFragment
 import com.syntia.moviecatalogue.favorite.presentation.view.FavoriteTvShowsFragment
-import kotlinx.coroutines.InternalCoroutinesApi
 
-@InternalCoroutinesApi
 class FavoriteItemPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fragmentManager, lifecycle) {
 

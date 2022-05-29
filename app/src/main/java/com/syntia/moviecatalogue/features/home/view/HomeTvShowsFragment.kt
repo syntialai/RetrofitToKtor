@@ -12,10 +12,8 @@ import com.syntia.moviecatalogue.databinding.FragmentHomeTvBinding
 import com.syntia.moviecatalogue.features.home.adapter.HomeTvShowsAdapter
 import com.syntia.moviecatalogue.features.home.viewmodel.HomeTvShowsViewModel
 import com.syntia.moviecatalogue.features.utils.Router
-import kotlinx.coroutines.InternalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@InternalCoroutinesApi
 class HomeTvShowsFragment : BaseFragment<FragmentHomeTvBinding, HomeTvShowsViewModel>() {
 
   companion object {

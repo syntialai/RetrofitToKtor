@@ -1,8 +1,10 @@
 package com.syntia.moviecatalogue.base.data.remote.response.base
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class ListItemResponse<T>(
 
-    @SerializedName("results")
-    val results: List<T>)
+    @SerialName("results")
+    val results: List<T>? = null)

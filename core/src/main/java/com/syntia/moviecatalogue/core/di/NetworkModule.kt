@@ -1,48 +1,34 @@
 package com.syntia.moviecatalogue.core.di
 
+import android.util.Log
 import com.syntia.moviecatalogue.base.BuildConfig
-import java.util.concurrent.TimeUnit
+import io.ktor.client.HttpClient
+import io.ktor.client.engine.okhttp.OkHttp
+import io.ktor.client.plugins.DefaultRequest
+import io.ktor.client.plugins.HttpTimeout
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.plugins.logging.LogLevel
+import io.ktor.client.plugins.logging.Logger
+import io.ktor.client.plugins.logging.Logging
+import io.ktor.client.plugins.observer.ResponseObserver
+import io.ktor.client.request.headers
+import io.ktor.http.HttpHeaders
+import io.ktor.http.URLProtocol
+import io.ktor.serialization.kotlinx.json.json
+import kotlinx.serialization.json.Json
 import okhttp3.CertificatePinner
-import okhttp3.Interceptor
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
-private const val BASE_API_URL = "https://api.themoviedb.org/3/"
+private const val DOMAIN = "api.themoviedb.org/3"
 
 private const val CERTIFICATE_HOST_NAME = "api.themoviedb.org"
 
 private const val API_KEY_QUERY = "api_key"
-private const val AUTHORIZATION = "Authorization"
 private const val BEARER_TOKEN_PREFIX = "Bearer "
 
+private const val TIME_OUT_MS = 120_000L
+
 val networkModule = module {
-
-  fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
-    return HttpLoggingInterceptor().apply {
-      setLevel(HttpLoggingInterceptor.Level.BODY)
-    }
-  }
-
-  fun provideRequestInterceptor(): Interceptor {
-    return Interceptor { chain ->
-      val request = chain.request()
-
-      val newUrl = request.url.newBuilder()
-          .addQueryParameter(API_KEY_QUERY, BuildConfig.THE_MOVIE_DB_API_KEY)
-          .build()
-      val headers = request.headers.newBuilder()
-          .add(AUTHORIZATION, "$BEARER_TOKEN_PREFIX${BuildConfig.THE_MOVIE_DB_ACCESS_TOKEN}")
-          .build()
-      val requestBuilder = request.newBuilder()
-          .url(newUrl)
-          .headers(headers)
-
-      chain.proceed(requestBuilder.build())
-    }
-  }
 
   fun provideMovieApiCertificatePinner(): CertificatePinner {
     return CertificatePinner.Builder()
@@ -52,30 +38,74 @@ val networkModule = module {
         .build()
   }
 
-  fun provideHttpClient(
-      httpLoggingInterceptor: HttpLoggingInterceptor,
-      requestInterceptor: Interceptor,
-      movieApiCertificatePinner: CertificatePinner): OkHttpClient {
-    return OkHttpClient.Builder()
-        .addInterceptor(httpLoggingInterceptor)
-        .addInterceptor(requestInterceptor)
-        .connectTimeout(6000, TimeUnit.SECONDS)
-        .readTimeout(6000, TimeUnit.SECONDS)
-        .certificatePinner(movieApiCertificatePinner)
-        .build()
+  // Http Client with OkHttp configs
+//  fun provideHttpClientKtor(
+//      httpLoggingInterceptor: HttpLoggingInterceptor,
+//      requestInterceptor: Interceptor,
+//      movieApiCertificatePinner: CertificatePinner): HttpClient {
+//    return HttpClient(OkHttp) {
+//      engine {
+//        config {
+//          connectTimeout(TIME_OUT_MS, TimeUnit.SECONDS)
+//          readTimeout(TIME_OUT_MS, TimeUnit.SECONDS)
+//          certificatePinner(movieApiCertificatePinner)
+//        }
+//
+//        addInterceptor(httpLoggingInterceptor)
+//        addNetworkInterceptor(requestInterceptor)
+//      }
+//    }
+//  }
+
+  fun provideHttpClientAndroid(): HttpClient {
+    return HttpClient(OkHttp) {
+      expectSuccess = false
+
+      install(Logging) {
+        logger = object : Logger {
+          override fun log(message: String) {
+            Log.v("HttpClientLogger", message)
+          }
+
+        }
+        level = LogLevel.ALL
+      }
+
+      install(HttpTimeout) {
+        requestTimeoutMillis = TIME_OUT_MS
+        connectTimeoutMillis = TIME_OUT_MS
+        socketTimeoutMillis = TIME_OUT_MS
+      }
+
+      install(ContentNegotiation) {
+        json(Json {
+          prettyPrint = true
+          isLenient = true
+          ignoreUnknownKeys = true
+        })
+      }
+
+      install(ResponseObserver) {
+        onResponse { response ->
+          Log.d("HttpClientLogger - HTTP status", "${response.status.value}")
+          Log.d("HttpClientLogger - Response:", response.toString())
+        }
+      }
+
+      install(DefaultRequest) {
+        headers {
+          append(HttpHeaders.ContentType, "application/json")
+          append(HttpHeaders.Authorization, "$BEARER_TOKEN_PREFIX${BuildConfig.THE_MOVIE_DB_ACCESS_TOKEN}")
+        }
+        url {
+          protocol = URLProtocol.HTTPS
+          host = DOMAIN
+          parameters.append(API_KEY_QUERY, BuildConfig.THE_MOVIE_DB_API_KEY)
+        }
+      }
+    }
   }
 
-  fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
-    return Retrofit.Builder()
-        .baseUrl(BASE_API_URL)
-        .addConverterFactory(GsonConverterFactory.create())
-        .client(okHttpClient)
-        .build()
-  }
-
-  single { provideHttpLoggingInterceptor() }
-  single { provideRequestInterceptor() }
   single { provideMovieApiCertificatePinner() }
-  single { provideHttpClient(get(), get(), get()) }
-  single { provideRetrofit(get()) }
+  single { provideHttpClientAndroid() }
 }

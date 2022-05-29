@@ -8,7 +8,8 @@ import com.syntia.moviecatalogue.core.domain.model.search.SearchResultUiModel
 
 object SearchMapper {
 
-  fun toSearchResultUiModels(responses: ListItemResponse<SearchResult>) = responses.results.map {
+  fun toSearchResultUiModels(
+      responses: ListItemResponse<SearchResult>) = responses.results.orEmpty().map {
     toSearchResultUiModel(it)
   }
 
@@ -18,7 +19,7 @@ object SearchMapper {
       name = response.title ?: response.name.orEmpty(),
       releasedYear = DataMapper.getYear(response.releaseDate, response.firstAirDate),
       type = response.mediaType,
-      voteAverage = response.voteAverage.toString(),
+      voteAverage = (response.voteAverage ?: 0).toString(),
       adult = response.adult ?: false,
       knownFor = response.knownFor?.let {
         toKnownForString(it)

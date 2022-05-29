@@ -16,10 +16,8 @@ import com.syntia.moviecatalogue.features.main.adapter.MainTrendingItemAdapter
 import com.syntia.moviecatalogue.features.main.viewmodel.MainViewModel
 import com.syntia.moviecatalogue.features.utils.Router
 import kotlin.math.abs
-import kotlinx.coroutines.InternalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@InternalCoroutinesApi
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
   private val trendingItemAdapter by lazy {

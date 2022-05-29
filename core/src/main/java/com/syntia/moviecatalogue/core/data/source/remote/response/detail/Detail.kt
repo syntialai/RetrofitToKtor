@@ -1,45 +1,47 @@
 package com.syntia.moviecatalogue.core.data.source.remote.response.detail
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class Detail(
 
-    @SerializedName("id")
+    @SerialName("id")
     val id: Int,
 
-    @SerializedName("poster_path")
+    @SerialName("poster_path")
     val posterPath: String? = null,
 
-    @SerializedName("name")
+    @SerialName("name")
     val name: String? = null,
 
-    @SerializedName("title")
+    @SerialName("title")
     val title: String? = null,
 
-    @SerializedName("release_date")
+    @SerialName("release_date")
     val releaseDate: String? = null,
 
-    @SerializedName("first_air_date")
+    @SerialName("first_air_date")
     val firstAirDate: String? = null,
 
-    @SerializedName("original_language")
+    @SerialName("original_language")
     val originalLanguage: String,
 
-    @SerializedName("runtime")
+    @SerialName("runtime")
     val runtime: Int? = null,
 
-    @SerializedName("number_of_episodes")
+    @SerialName("number_of_episodes")
     val numberOfEpisodes: Int? = null,
 
-    @SerializedName("vote_average")
+    @SerialName("vote_average")
     val voteAverage: Double,
 
-    @SerializedName("adult")
+    @SerialName("adult")
     val adult: Boolean? = false,
 
-    @SerializedName("genres")
+    @SerialName("genres")
     val genres: List<Genre>,
 
-    @SerializedName("overview")
-    val overview: String?
+    @SerialName("overview")
+    val overview: String? = null
 )

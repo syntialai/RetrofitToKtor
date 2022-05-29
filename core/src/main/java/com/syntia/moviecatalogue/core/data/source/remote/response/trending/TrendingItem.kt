@@ -1,33 +1,35 @@
 package com.syntia.moviecatalogue.core.data.source.remote.response.trending
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class TrendingItem(
 
-    @SerializedName("adult")
+    @SerialName("adult")
     val adult: Boolean? = false,
 
-    @SerializedName("first_air_date")
-    val firstAirDate: String?,
+    @SerialName("first_air_date")
+    val firstAirDate: String? = null,
 
-    @SerializedName("id")
+    @SerialName("id")
     val id: Int,
 
-    @SerializedName("media_type")
+    @SerialName("media_type")
     val mediaType: String,
 
-    @SerializedName("name")
-    val name: String?,
+    @SerialName("name")
+    val name: String? = null,
 
-    @SerializedName("poster_path")
+    @SerialName("poster_path")
     val posterPath: String? = null,
 
-    @SerializedName("release_date")
-    val releaseDate: String?,
+    @SerialName("release_date")
+    val releaseDate: String? = null,
 
-    @SerializedName("title")
-    val title: String?,
+    @SerialName("title")
+    val title: String? = null,
 
-    @SerializedName("vote_average")
+    @SerialName("vote_average")
     val voteAverage: Double
 )

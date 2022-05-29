@@ -12,9 +12,7 @@ import com.syntia.moviecatalogue.base.R
 import com.syntia.moviecatalogue.base.domain.model.result.ResultWrapper
 import com.syntia.moviecatalogue.base.presentation.viewmodel.BaseViewModel
 import java.io.IOException
-import kotlinx.coroutines.InternalCoroutinesApi
 
-@InternalCoroutinesApi
 abstract class BaseActivity<VB : ViewBinding, out VM : BaseViewModel> :
     AppCompatActivity() {
 

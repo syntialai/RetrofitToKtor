@@ -2,8 +2,9 @@ package com.syntia.moviecatalogue.base.data.source.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import io.ktor.client.plugins.ClientRequestException
+import io.ktor.client.plugins.ServerResponseException
 import java.io.IOException
-import retrofit2.HttpException
 
 abstract class BasePagingSource<in T : Any, U : Any> : PagingSource<Int, U>() {
 
@@ -25,8 +26,10 @@ abstract class BasePagingSource<in T : Any, U : Any> : PagingSource<Int, U>() {
       )
     } catch (ioException: IOException) {
       return LoadResult.Error(ioException)
-    } catch (httpException: HttpException) {
-      return LoadResult.Error(httpException)
+    } catch (clientRequestException: ClientRequestException) {
+      return LoadResult.Error(clientRequestException)
+    } catch (serverResponseException: ServerResponseException) {
+      return LoadResult.Error(serverResponseException)
     }
   }
 

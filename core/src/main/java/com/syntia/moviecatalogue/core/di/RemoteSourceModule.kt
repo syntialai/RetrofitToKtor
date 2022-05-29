@@ -9,9 +9,12 @@ import com.syntia.moviecatalogue.core.data.source.remote.datasource.impl.Trendin
 import com.syntia.moviecatalogue.core.data.source.remote.service.DetailService
 import com.syntia.moviecatalogue.core.data.source.remote.service.SearchService
 import com.syntia.moviecatalogue.core.data.source.remote.service.TrendingService
+import com.syntia.moviecatalogue.core.data.source.remote.service.impl.DetailServiceImpl
+import com.syntia.moviecatalogue.core.data.source.remote.service.impl.SearchServiceImpl
+import com.syntia.moviecatalogue.core.data.source.remote.service.impl.TrendingServiceImpl
+import io.ktor.client.HttpClient
 import org.koin.dsl.bind
 import org.koin.dsl.module
-import retrofit2.Retrofit
 
 val remoteDataSourceModule = module {
   single { DetailRemoteDataSourceImpl(get(), get()) } bind DetailRemoteDataSource::class
@@ -21,16 +24,16 @@ val remoteDataSourceModule = module {
 
 val serviceModule = module {
 
-  fun provideDetailService(retrofit: Retrofit): DetailService {
-    return retrofit.create(DetailService::class.java)
+  fun provideDetailService(httpClient: HttpClient): DetailService {
+    return DetailServiceImpl(httpClient)
   }
 
-  fun provideSearchService(retrofit: Retrofit): SearchService {
-    return retrofit.create(SearchService::class.java)
+  fun provideSearchService(httpClient: HttpClient): SearchService {
+    return SearchServiceImpl(httpClient)
   }
 
-  fun provideTrendingService(retrofit: Retrofit): TrendingService {
-    return retrofit.create(TrendingService::class.java)
+  fun provideTrendingService(httpClient: HttpClient): TrendingService {
+    return TrendingServiceImpl(httpClient)
   }
 
   single { provideDetailService(get()) }

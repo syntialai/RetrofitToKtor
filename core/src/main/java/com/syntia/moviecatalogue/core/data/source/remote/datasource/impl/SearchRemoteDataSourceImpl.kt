@@ -5,7 +5,8 @@ import com.syntia.moviecatalogue.core.data.source.remote.datasource.SearchRemote
 import com.syntia.moviecatalogue.core.data.source.remote.response.search.SearchResult
 import com.syntia.moviecatalogue.core.data.source.remote.service.SearchService
 
-class SearchRemoteDataSourceImpl(private val searchService: SearchService) : SearchRemoteDataSource {
+class SearchRemoteDataSourceImpl(private val searchService: SearchService) :
+    SearchRemoteDataSource {
 
   override suspend fun searchByQuery(page: Int, query: String): ListItemResponse<SearchResult> {
     return searchService.searchByQuery(page, query)

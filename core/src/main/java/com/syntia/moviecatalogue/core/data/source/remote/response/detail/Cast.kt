@@ -1,18 +1,20 @@
 package com.syntia.moviecatalogue.core.data.source.remote.response.detail
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class Cast(
 
-    @SerializedName("id")
+    @SerialName("id")
     val id: Int,
 
-    @SerializedName("name")
+    @SerialName("name")
     val name: String,
 
-    @SerializedName("profile_path")
+    @SerialName("profile_path")
     val profilePath: String? = null,
 
-    @SerializedName("character")
-    val character: String,
+    @SerialName("character")
+    val character: String
 )
