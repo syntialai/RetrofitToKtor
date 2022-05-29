@@ -17,12 +17,10 @@ import com.syntia.moviecatalogue.databinding.ActivitySearchBinding
 import com.syntia.moviecatalogue.features.search.adapter.SearchResultAdapter
 import com.syntia.moviecatalogue.features.search.viewmodel.SearchViewModel
 import com.syntia.moviecatalogue.features.utils.Router
-import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@InternalCoroutinesApi
 class SearchActivity : BaseActivity<ActivitySearchBinding, SearchViewModel>(),
     View.OnClickListener {
 
@@ -59,11 +57,11 @@ class SearchActivity : BaseActivity<ActivitySearchBinding, SearchViewModel>(),
   override fun setupObserver() {
     super.setupObserver()
 
-    viewModel.searchResult.observe(this, {
+    viewModel.searchResult.observe(this) {
       launchSearchJob {
         searchAdapter.submitData(it)
       }
-    })
+    }
   }
 
   override fun onClick(view: View?) {

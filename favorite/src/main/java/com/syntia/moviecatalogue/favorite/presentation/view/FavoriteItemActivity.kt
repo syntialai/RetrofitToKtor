@@ -7,10 +7,8 @@ import com.syntia.moviecatalogue.R
 import com.syntia.moviecatalogue.favorite.databinding.ActivityFavoriteItemBinding
 import com.syntia.moviecatalogue.favorite.di.favoriteViewModelModules
 import com.syntia.moviecatalogue.favorite.presentation.adapter.FavoriteItemPagerAdapter
-import kotlinx.coroutines.InternalCoroutinesApi
 import org.koin.core.context.loadKoinModules
 
-@InternalCoroutinesApi
 class FavoriteItemActivity : AppCompatActivity() {
 
   private lateinit var binding: ActivityFavoriteItemBinding

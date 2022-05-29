@@ -6,9 +6,7 @@ import androidx.paging.PagingData
 import com.syntia.moviecatalogue.base.presentation.viewmodel.BaseViewModel
 import com.syntia.moviecatalogue.core.domain.model.tvshow.TvShowsUiModel
 import com.syntia.moviecatalogue.core.domain.repository.TrendingRepository
-import kotlinx.coroutines.InternalCoroutinesApi
 
-@InternalCoroutinesApi
 class HomeTvShowsViewModel(private val trendingRepository: TrendingRepository) : BaseViewModel() {
 
   private var _tvShows = MutableLiveData<PagingData<TvShowsUiModel>>()

@@ -15,11 +15,8 @@ import com.syntia.moviecatalogue.base.domain.model.result.ResultWrapper
 import com.syntia.moviecatalogue.base.presentation.adapter.PagingLoadStateAdapter
 import com.syntia.moviecatalogue.base.presentation.viewmodel.BaseViewModel
 import java.io.IOException
-import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
 
-@InternalCoroutinesApi
 abstract class BaseFragment<VB : ViewBinding, out VM : BaseViewModel> : Fragment() {
 
   private var _binding: VB? = null
@@ -105,7 +102,7 @@ abstract class BaseFragment<VB : ViewBinding, out VM : BaseViewModel> : Fragment
 
   protected fun launchLifecycleScope(block: suspend () -> Unit) {
     lifecycleJob?.cancel()
-    lifecycleJob = lifecycleScope.launch {
+    lifecycleJob = viewLifecycleOwner.lifecycleScope.launchWhenResumed {
       block.invoke()
     }
   }

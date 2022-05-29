@@ -1,5 +1,6 @@
 package com.syntia.moviecatalogue.core.di
 
+import com.syntia.moviecatalogue.core.config.db.AppDatabase
 import com.syntia.moviecatalogue.core.data.source.local.dao.FavoriteMoviesDAO
 import com.syntia.moviecatalogue.core.data.source.local.dao.FavoriteTvShowsDAO
 import com.syntia.moviecatalogue.core.data.source.local.datasource.FavoriteMoviesLocalDataSource
@@ -18,11 +19,11 @@ val localDataSourceModule = module {
 @InternalCoroutinesApi
 val daoModule = module {
 
-  fun provideFavoriteMoviesDAO(appDatabase: com.syntia.moviecatalogue.core.config.db.AppDatabase): FavoriteMoviesDAO {
+  fun provideFavoriteMoviesDAO(appDatabase: AppDatabase): FavoriteMoviesDAO {
     return appDatabase.favoriteMoviesDAO()
   }
 
-  fun provideFavoriteTvShowsDAO(appDatabase: com.syntia.moviecatalogue.core.config.db.AppDatabase): FavoriteTvShowsDAO {
+  fun provideFavoriteTvShowsDAO(appDatabase: AppDatabase): FavoriteTvShowsDAO {
     return appDatabase.favoriteTvShowsDAO()
   }
 

@@ -6,9 +6,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.syntia.moviecatalogue.features.home.view.HomeMovieFragment
 import com.syntia.moviecatalogue.features.home.view.HomeTvShowsFragment
-import kotlinx.coroutines.InternalCoroutinesApi
 
-@InternalCoroutinesApi
 class MainMovieAndTvPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fragmentManager, lifecycle) {
 

@@ -16,10 +16,8 @@ import com.syntia.moviecatalogue.features.main.adapter.MainTrendingItemAdapter
 import com.syntia.moviecatalogue.features.main.viewmodel.MainViewModel
 import com.syntia.moviecatalogue.features.utils.Router
 import kotlin.math.abs
-import kotlinx.coroutines.InternalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@InternalCoroutinesApi
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
   private val trendingItemAdapter by lazy {
@@ -41,10 +39,10 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     super.setupObserver()
 
     viewModel.fetchTrendingItems()
-    viewModel.trendingItems.observe(this, { trendingItems ->
+    viewModel.trendingItems.observe(this) { trendingItems ->
       trendingItemAdapter.submitList(trendingItems)
       showEmptyState(trendingItems.isEmpty())
-    })
+    }
   }
 
   override fun onCreateOptionsMenu(menu: Menu?): Boolean {

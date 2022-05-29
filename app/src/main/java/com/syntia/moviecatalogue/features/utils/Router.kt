@@ -5,9 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import com.syntia.moviecatalogue.features.detail.view.DetailActivity
 import com.syntia.moviecatalogue.features.search.view.SearchActivity
-import kotlinx.coroutines.InternalCoroutinesApi
 
-@InternalCoroutinesApi
 object Router {
 
   const val PARAM_ID = "PARAM_ID"

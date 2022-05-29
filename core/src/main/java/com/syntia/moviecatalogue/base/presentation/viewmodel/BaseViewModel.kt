@@ -7,13 +7,10 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.syntia.moviecatalogue.base.domain.model.result.ResultWrapper
-import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-@InternalCoroutinesApi
 abstract class BaseViewModel : ViewModel() {
 
   private val _resultWrapperStatus = MutableLiveData<ResultWrapper<*>>()

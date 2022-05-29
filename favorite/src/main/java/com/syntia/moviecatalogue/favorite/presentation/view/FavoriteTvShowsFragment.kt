@@ -12,10 +12,8 @@ import com.syntia.moviecatalogue.favorite.databinding.FragmentFavoriteTvBinding
 import com.syntia.moviecatalogue.favorite.presentation.adapter.FavoriteTvShowsAdapter
 import com.syntia.moviecatalogue.favorite.presentation.viewmodel.FavoriteTvShowsViewModel
 import com.syntia.moviecatalogue.features.utils.Router
-import kotlinx.coroutines.InternalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@InternalCoroutinesApi
 class FavoriteTvShowsFragment :
     BaseFragment<FragmentFavoriteTvBinding, FavoriteTvShowsViewModel>() {
 
@@ -43,11 +41,11 @@ class FavoriteTvShowsFragment :
   }
 
   override fun setupObserver() {
-    viewModel.tvShows.observe(viewLifecycleOwner, {
+    viewModel.tvShows.observe(viewLifecycleOwner) {
       launchLifecycleScope {
         tvShowsAdapter.submitData(it)
       }
-    })
+    }
   }
 
   override fun onResume() {
