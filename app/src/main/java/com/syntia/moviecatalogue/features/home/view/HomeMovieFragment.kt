@@ -43,11 +43,11 @@ class HomeMovieFragment : BaseFragment<FragmentHomeMovieBinding, HomeMovieViewMo
 
   override fun setupObserver() {
     viewModel.fetchMovies()
-    viewModel.movies.observe(viewLifecycleOwner, {
+    viewModel.movies.observe(viewLifecycleOwner) {
       launchLifecycleScope {
         movieAdapter.submitData(it)
       }
-    })
+    }
   }
 
   override fun setupAdapterLoadStateListener() {

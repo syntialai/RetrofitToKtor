@@ -41,11 +41,11 @@ class HomeTvShowsFragment : BaseFragment<FragmentHomeTvBinding, HomeTvShowsViewM
 
   override fun setupObserver() {
     viewModel.fetchTvShows()
-    viewModel.tvShows.observe(viewLifecycleOwner, { data ->
+    viewModel.tvShows.observe(viewLifecycleOwner) { data ->
       launchLifecycleScope {
         tvShowsAdapter.submitData(data)
       }
-    })
+    }
   }
 
   override fun setupAdapterLoadStateListener() {

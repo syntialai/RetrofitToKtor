@@ -42,11 +42,11 @@ class FavoriteMovieFragment : BaseFragment<FragmentFavoriteMovieBinding, Favorit
   }
 
   override fun setupObserver() {
-    viewModel.movies.observe(viewLifecycleOwner, {
+    viewModel.movies.observe(viewLifecycleOwner) {
       launchLifecycleScope {
         movieAdapter.submitData(it)
       }
-    })
+    }
   }
 
   override fun onResume() {

@@ -61,23 +61,23 @@ class DetailActivity : BaseActivity<ActivityDetailBinding, DetailViewModel>(), V
     viewModel.fetchDetails()
     viewModel.fetchCasts()
 
-    viewModel.details.observe(this, { detail ->
+    viewModel.details.observe(this) { detail ->
       val dateAndTimeOrEpisode = getDateAndTimeOrEpisodeText(detail.releaseOrFirstAirDate,
           detail.language, detail.runtime, detail.episodeCount)
       setDetailMainInfo(detail.title, dateAndTimeOrEpisode, detail.rating, detail.isAdult)
       setImageAndOverview(detail.image, detail.overview)
-    })
-    viewModel.casts.observe(this, {
+    }
+    viewModel.casts.observe(this) {
       setCasts(it)
-    })
-    viewModel.loadCasts.observe(this, { loadingState ->
+    }
+    viewModel.loadCasts.observe(this) { loadingState ->
       onLoadCast(loadingState is ResultWrapper.Loading)
       onErrorFetchCast(
           loadingState is ResultWrapper.Error || loadingState is ResultWrapper.NetworkError)
-    })
-    viewModel.isFavoriteItem.observe(this, {
+    }
+    viewModel.isFavoriteItem.observe(this) {
       setFavoriteButtonColor(it)
-    })
+    }
   }
 
   override fun onClick(v: View?) {

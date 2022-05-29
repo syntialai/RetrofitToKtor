@@ -57,11 +57,11 @@ class SearchActivity : BaseActivity<ActivitySearchBinding, SearchViewModel>(),
   override fun setupObserver() {
     super.setupObserver()
 
-    viewModel.searchResult.observe(this, {
+    viewModel.searchResult.observe(this) {
       launchSearchJob {
         searchAdapter.submitData(it)
       }
-    })
+    }
   }
 
   override fun onClick(view: View?) {

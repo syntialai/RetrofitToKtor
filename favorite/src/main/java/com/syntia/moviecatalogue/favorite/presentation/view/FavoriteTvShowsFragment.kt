@@ -41,11 +41,11 @@ class FavoriteTvShowsFragment :
   }
 
   override fun setupObserver() {
-    viewModel.tvShows.observe(viewLifecycleOwner, {
+    viewModel.tvShows.observe(viewLifecycleOwner) {
       launchLifecycleScope {
         tvShowsAdapter.submitData(it)
       }
-    })
+    }
   }
 
   override fun onResume() {

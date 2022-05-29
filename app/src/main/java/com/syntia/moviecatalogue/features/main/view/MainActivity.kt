@@ -39,10 +39,10 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     super.setupObserver()
 
     viewModel.fetchTrendingItems()
-    viewModel.trendingItems.observe(this, { trendingItems ->
+    viewModel.trendingItems.observe(this) { trendingItems ->
       trendingItemAdapter.submitList(trendingItems)
       showEmptyState(trendingItems.isEmpty())
-    })
+    }
   }
 
   override fun onCreateOptionsMenu(menu: Menu?): Boolean {

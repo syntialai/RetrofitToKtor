@@ -103,7 +103,7 @@ abstract class BaseFragment<VB : ViewBinding, out VM : BaseViewModel> : Fragment
 
   protected fun launchLifecycleScope(block: suspend () -> Unit) {
     lifecycleJob?.cancel()
-    lifecycleJob = lifecycleScope.launch {
+    lifecycleJob = viewLifecycleOwner.lifecycleScope.launch {
       block.invoke()
     }
   }
