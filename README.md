@@ -30,7 +30,6 @@ https://user-images.githubusercontent.com/53588149/170821249-2d183032-2577-4a5f-
       ...
       
       // Ktor
-      implementation 'io.ktor:ktor-client-android:2.0.2'
       implementation "io.ktor:ktor-client-okhttp:2.0.2"
       implementation "io.ktor:ktor-client-content-negotiation:2.0.2"
       implementation 'io.ktor:ktor-serialization-kotlinx-json:2.0.2'
@@ -38,7 +37,6 @@ https://user-images.githubusercontent.com/53588149/170821249-2d183032-2577-4a5f-
     }
     ```
 
-    + `client-android` provides Android client engine to processes network request on Android.
     + `client-okhttp` provides OkHttp client engine to processes network request on Android with OkHttp utility.
     + `content-negotiation` provides utility to serialize/deserialize content in a specific format (JSON, XML, CBOR).
     + `serialization-kotlinx-json` serialize/deserialize content to format JSON.
@@ -61,7 +59,7 @@ https://user-images.githubusercontent.com/53588149/170821249-2d183032-2577-4a5f-
     ...
     fun provideHttpClientAndroid(): HttpClient { // 1
       return HttpClient(OkHttp) { // 2
-        expectSuccess = false
+        expectSuccess = true
 
         install(Logging) { // 3
           logger = object : Logger {
